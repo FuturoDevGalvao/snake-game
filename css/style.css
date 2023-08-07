@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 50px 0;
+    width: 100%;
+    background-color: #202024;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    background-color: #111;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.score-value {
+    font-weight: 700;
+    display: block;
+    margin-left: 5px;
+}
+
+#title {
+    position: relative;
+    font-size: 3rem;
+    transition: .4s;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+#title::after {
+    content: '';
+    position: absolute;
+    height: 80%;
+    width: 2px;
+    margin-top: 8px;
+    background-color: aliceblue;
+    margin-left: 5px;
+    opacity: 1;
+    animation: pisca .8s infinite linear;
+}
+
+@keyframes pisca {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.menu-screen {
+
+    /* From https://css.glass */
+    background: rgba(32, 32, 36, 0.46);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+    padding: 50px;
+    border-radius: 10px;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-over {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.final-score {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#btn-play-again {
+    background-color: #BFD149;
+    display: flex; 
+    align-items: center;
+    border: none;
+    padding: 20px;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 400;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .3s;
+    animation-name: pulse;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#btn-play-again:hover {
+    background-color: #93a136;
+    transition: .3s;
+}
+
+#btn-play-again span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.03);
+    }
+}
