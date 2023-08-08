@@ -47,17 +47,15 @@ let direction, loopId;
 const drawFood = () => {
     const { x, y, color } = food;
 
-    /* Estilo para a fruta */
     ctx.shadowColor = color;
     ctx.shadowBlur = 6;
 
     ctx.fillStyle = color;
     ctx.fillRect(x, y, SIZE, SIZE);
 
-    ctx.shadowBlur = 0; /*Zerando o blur para não afetar os outros elementos*/
+    ctx.shadowBlur = 0; 
 }
 
-/* Lógica de desenho da snake no canvas */
 const drawSnake = () => {
     ctx.fillStyle = "#BFD149";
     snake.forEach( (position, index) => {
@@ -73,16 +71,13 @@ const drawGrid = () => {
     ctx.lineWidth = 1;
     ctx.strokeStyle = "#202020";
 
-    /* Percorrendo o canvas e desenhando */
     for (let index = SIZE; index < canvas.width; index += SIZE) {
-        /* Desenho das colunas */
-        ctx.beginPath(); /* Define um ponto de início para as linhas verticais, sem arrastar */
+        ctx.beginPath(); 
         ctx.lineTo(index, 0);
         ctx.lineTo(index, 400);
         ctx.stroke();
 
-        /* Desenho das linhas */
-        ctx.beginPath(); /* Define um ponto de início para as linhas horizontais, sem arrastar */
+        ctx.beginPath(); 
         ctx.lineTo(0, index);
         ctx.lineTo(400, index);
         ctx.stroke();
@@ -97,11 +92,9 @@ const checkEat = () => {
         audio.play();
         incrementScore();
 
-        /* Checando se a posição da nova comida é igual a alguma da snake */
         let x = randomPosition();
         let y = randomPosition();
         
-        /* Executado enquanto as posições forem iguais */
         while (snake.find( position => position.x == x && position.y == y)) {
             x = randomPosition();
             y = randomPosition();    
@@ -136,7 +129,6 @@ const gameOver = () => {
     finalScore.innerHTML = score.innerHTML;
 }
 
-/* Lógica para a movimentação da snake */
 const moveSnake = () => {
     if (!direction) return;
 
@@ -212,7 +204,6 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-/* Reset play again */
 btnPlayAgain.addEventListener("click", () => {
     score.innerHTML = "00";
     menuScreen.style.display = "none";
@@ -232,7 +223,6 @@ const typeWriter = (elemento) => {
 
 typeWriter(title);
 
-/* Evita que as setas movimentem a página */
 document.addEventListener("keydown", (event) => {
     const key = event.key;
     const keysNotAllowed = [ "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
